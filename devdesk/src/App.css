@@ -1,38 +1,291 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Spectral:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap");
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* my styles */
+
+:root {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Spectral", serif;
+}
+
 .App {
-  text-align: center;
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sidebar {
+  width: 20%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.sidebar h2 {
+  font-size: 24px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.option-list {
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.option-list li {
+  margin-bottom: 10px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.option-list li:last-child {
+  margin-bottom: 0;
+}
+
+.main-content {
+  flex: 1;
+  background-color: #f9fafb;
+  height: 100%;
+  padding: 20px 0;
+}
+
+.alltickets {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.ticket {
+  display: flex;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  padding: 15px;
+  width: 80%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ticket .days {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.ticket .issue {
+  margin-left: 20px;
+  border-left: 1px solid #e0e0e0;
+  padding-left: 10px;
+}
+
+.issue-category {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.issue-title {
+  font-weight: lighter;
+}
+
+.equipment {
+  border-left: 5px solid #017aff;
+}
+
+.people {
+  border-left: 5px solid #e629ff;
+}
+
+.track {
+  border-left: 5px solid #ff6333;
+}
+
+.finance {
+  border-left: 5px solid #49c77b;
+}
+
+.other {
+  border-left: 5px solid #0bc3cf;
+}
+
+.selected-option {
+  background-color: #f3fcff;
+  border-left: 5px solid #49c9e8;
+  font-weight: bold;
+}
+
+.dashboard-brandname {
+  padding: 20px;
+}
+
+.filter-tickets {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.filter-tickets .filters {
+  margin-bottom: 15px;
+}
+
+.urgency-filter-option,
+.status-filter-option,
+.assign-filter-option,
+.category-filter-option,
+.filter-options {
+  display: none;
+}
+
+.urgency-filter-option.filter-reveal,
+.assign-filter-option.filter-reveal,
+.status-filter-option.filter-reveal,
+.category-filter-option.filter-reveal,
+.filter-options.filter-reveal {
+  display: block;
+}
+
+.filter-options p {
+  margin-bottom: 15px;
 }
