@@ -4,6 +4,7 @@ import "./Login.css";
 export default function Form() {
 return (
     <div className="form-container">
+        <p className="motto">We're here to help.</p>
         <form id="login-form">
             <div className="form-option">
         <label for="email" id="email-label">Email: </label>
@@ -14,12 +15,10 @@ return (
         <input type="password" className="form" placeholder="Enter your password" required/>
          </div>
          <div class="form-option">
-<button type="submit" id="submit" class="submit-btn">Submit</button>
-</div>
-        </form>
-        <div className="alert-role">
-        <p>Welcome ...</p>
+<button type="submit" id="submit" className="submit-btn">Submit</button>
+<button type="submit" id="create" className="submit-btn">Create Account</button>
         </div>
+        </form>
     </div>
 )
 }
