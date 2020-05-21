@@ -339,16 +339,21 @@ h6 {
   justify-content: space-between;
 }
 
+.ticket-modal-options-variant {
+  margin-bottom: 10px;
+}
+
 .ticket-modal-close {
   color: red;
   cursor: pointer;
   font-size: 16px;
+  margin-top: 5px;
 }
 
 .assign-ticket-btn {
   color: #0170eb;
   padding: 4px;
-  width: 70px;
+  width: 100px;
   border: 2px solid #0170eb;
   background-color: #ffffff;
   cursor: pointer;
@@ -357,8 +362,34 @@ h6 {
   font-size: 14px;
 }
 
+.unassign-ticket-btn,
+.resolve-ticket-btn:focus,
 .assign-ticket-btn:focus {
   outline: 0;
+}
+
+.resolve-ticket-btn {
+  color: red;
+  padding: 4px;
+  width: 100px;
+  border: 2px solid red;
+  background-color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.unassign-ticket-btn {
+  color: #535575;
+  padding: 4px;
+  width: 100px;
+  border: 2px solid #535575;
+  background-color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .more-info {
