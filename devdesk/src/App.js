@@ -1,14 +1,18 @@
 import React from "react";
-import Helper from "./components/helper";
-import HelperSidebar from "./components/helpersidebar";
+import HelperDashboard from "./components/helperdashboard";
 import "./App.css";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <HelperSidebar />
-      <Helper />
-    </div>
+    <Router>
+      <div className="App">
+        <Route path="/helper-dashboard">
+          <HelperDashboard />
+        </Route>
+      </div>
+    </Router>
   );
 }
 

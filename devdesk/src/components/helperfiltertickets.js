@@ -74,7 +74,8 @@ function HelperFilterTickets() {
               : "status-filter-option"
           }
         >
-          <p>Open</p>
+          <p>Assign</p>
+          <p>Assigned</p>
           <p>Closed</p>
         </div>
         <p onClick={changeAssignToFilter} className="assign-filter">
