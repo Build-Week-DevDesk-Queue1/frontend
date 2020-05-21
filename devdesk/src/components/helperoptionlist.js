@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { helperOptionAction } from "../actions";
+const { setHelperOptions } = helperOptionAction;
 
 function HelperOptionList() {
-  const [selectedOption, setSelectedOption] = useState(1);
+  const helperOption = useSelector(state => {
+    const { helperOption } = state;
+    return helperOption;
+  });
+
+  const dispatch = useDispatch();
 
   function setOption(e) {
-    setSelectedOption(+e.target.getAttribute("data-id"));
+    dispatch(setHelperOptions(+e.target.getAttribute("data-id")));
   }
 
   return (
@@ -12,14 +20,14 @@ function HelperOptionList() {
       <li
         onClick={setOption}
         data-id="1"
-        className={selectedOption + "" === "1" ? "selected-option" : ""}
+        className={helperOption + "" === "1" ? "selected-option" : ""}
       >
         All Tickets
       </li>
       <li
         onClick={setOption}
         data-id="2"
-        className={selectedOption + "" === "2" ? "selected-option" : ""}
+        className={helperOption + "" === "2" ? "selected-option" : ""}
       >
         My Tickets
       </li>
