@@ -45,9 +45,9 @@ label {
 #submit {
     margin-top: 10px;
     width: 30%;
-    background-color: rgba(87,24,69,1);
+    background-color: #777;
     border-style: none;
-    color: white;
+    color: black;
     padding: 10px;
     font-size: 20px;
     cursor: pointer;
