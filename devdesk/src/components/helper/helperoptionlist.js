@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { helperOptionAction } from "../actions";
+import { helperOptionAction } from "../../actions";
 const { setHelperOptions } = helperOptionAction;
 
 function HelperOptionList() {

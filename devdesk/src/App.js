@@ -1,5 +1,5 @@
 import React from "react";
-import HelperDashboard from "./components/helperdashboard";
+import HelperDashboard from "./components/helper/helperdashboard";
 import "./App.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route } from "react-router-dom";
