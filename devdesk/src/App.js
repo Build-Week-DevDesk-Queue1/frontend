@@ -1,13 +1,15 @@
 import React from "react";
 import Login from "./components/Login Form/Login";
 import "./App.css";
+import {Route} from "react-router-dom";
+import Registration from "./components/Login Form/Registration";
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to DevDesk</h1>
       <section className="component-box">
-        <Login />
+        <Route path="/login" component={Login} />
+        <Route path="/registration" component={Registration} />
       </section>
     </div>
   );
