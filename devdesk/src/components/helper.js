@@ -76,6 +76,41 @@ function Helper() {
       created: 4
     }
   ]);
+  const [myTickets, setMyTickets] = useState([
+    {
+      id: 2,
+      category: "Track",
+      title: "I need to go on a Hiatus",
+      created: 2,
+      assign: true,
+      assignTo: {
+        id: 105,
+        name: "mark"
+      }
+    },
+    {
+      id: 3,
+      category: "People",
+      title: "I'm having problems with my SL",
+      created: 2,
+      assign: true,
+      assignTo: {
+        id: 105,
+        name: "mark"
+      }
+    },
+    {
+      id: 4,
+      category: "Finance",
+      title: "Something's wrong with my account",
+      created: 2,
+      assign: true,
+      assignTo: {
+        id: 105,
+        name: "mark"
+      }
+    }
+  ]);
   const [showModal, setShowModal] = useState(false);
   const [selectedTicket, setSelectedTicket] = useState(null);
 
@@ -117,7 +152,7 @@ function Helper() {
           </div>
         </Modal>
       )}
-      <div className="alltickets">
+      {/*<div className="alltickets">
         {alltickets.map((ticket, index) => {
           return (
             <div
@@ -125,6 +160,24 @@ function Helper() {
                 setSelectedTicket(index);
                 setShowModal(true);
               }}
+              key={ticket.id}
+              className={`ticket ${setCategory(ticket.category)}`}
+            >
+              <div className="days">
+                {ticket.created} <br /> day <br /> old
+              </div>
+              <div className="issue">
+                <div className="issue-category">{ticket.category} Issue</div>
+                <div className="issue-title">{ticket.title}</div>
+              </div>
+            </div>
+          );
+        })}
+      </div>*/}
+      <div className="mytickets">
+        {myTickets.map(ticket => {
+          return (
+            <div
               key={ticket.id}
               className={`ticket ${setCategory(ticket.category)}`}
             >
