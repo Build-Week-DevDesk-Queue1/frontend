@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Modal from "./modal";
 
 function setCategory(category) {
   category = category.toLowerCase();
@@ -75,12 +76,55 @@ function Helper() {
       created: 4
     }
   ]);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedTicket, setSelectedTicket] = useState(null);
+
+  function closeModal() {
+    setShowModal(false);
+  }
+
   return (
     <div className="main-content">
+      {showModal && (
+        <Modal>
+          <div className="ticket-modal-info">
+            <div className="ticket-modal-options">
+              <i
+                onClick={closeModal}
+                className="far fa-times-circle ticket-modal-close"
+              ></i>
+              <button className="assign-ticket-btn">Assign</button>
+            </div>
+            <h2 className="ticket-modal-category">
+              {alltickets[selectedTicket].category} Issue
+            </h2>
+            <p className="ticket-modal-title">
+              {alltickets[selectedTicket].title}
+            </p>
+            <div className="more-info">
+              <p className="ticket-modal-description-heading">
+                Description of issue
+              </p>
+              <p>
+                I'm on the Hospital project, we aren't able to agree on the
+                direction of the assignment.
+              </p>
+            </div>
+            <div className="tried">
+              <p className="ticket-modal-tried-heading">What I've tried</p>
+              <p>Meet individual with my TL and SL</p>
+            </div>
+          </div>
+        </Modal>
+      )}
       <div className="alltickets">
-        {alltickets.map(ticket => {
+        {alltickets.map((ticket, index) => {
           return (
             <div
+              onClick={() => {
+                setSelectedTicket(index);
+                setShowModal(true);
+              }}
               key={ticket.id}
               className={`ticket ${setCategory(ticket.category)}`}
             >
@@ -95,7 +139,6 @@ function Helper() {
           );
         })}
       </div>
-      .
     </div>
   );
 }

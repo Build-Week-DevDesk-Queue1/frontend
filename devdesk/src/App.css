@@ -289,3 +289,74 @@ h6 {
 .filter-options p {
   margin-bottom: 15px;
 }
+
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.ticket-modal-info {
+  width: 400px;
+  padding: 20px;
+  border: 1px solid #ffffff;
+  background-color: white;
+}
+
+.ticket-modal-category {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.ticket-modal-title {
+  font-size: 18px;
+}
+
+.ticket-modal-tried-heading,
+.ticket-modal-description-heading {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.ticket-modal-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ticket-modal-close {
+  color: red;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.assign-ticket-btn {
+  color: #0170eb;
+  padding: 4px;
+  width: 70px;
+  border: 2px solid #0170eb;
+  background-color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.assign-ticket-btn:focus {
+  outline: 0;
+}
+
+.more-info {
+  margin-top: 20px;
+}
+
+.tried {
+  margin-top: 20px;
+}
