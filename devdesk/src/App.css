@@ -162,10 +162,12 @@ h6 {
   height: 100%;
 }
 
+.student-sidebar,
 .sidebar {
   width: 20%;
 }
 
+.student-sidebar h2,
 .sidebar h2 {
   font-size: 24px;
 }
@@ -185,14 +187,15 @@ h6 {
   margin-bottom: 0;
 }
 
+.student-main-content,
 .main-content {
   flex: 1;
   background-color: #f9fafb;
   height: 100%;
   padding: 20px 0;
-  align-items: stretch;
 }
 
+.createTicket,
 .mytickets,
 .alltickets {
   display: flex;
@@ -202,6 +205,7 @@ h6 {
   height: 100%;
 }
 
+.createTicket,
 .mytickets {
   height: 100vh;
   min-height: 100%;
@@ -398,4 +402,111 @@ h6 {
 
 .tried {
   margin-top: 20px;
+}
+
+.createTicketForm h2 {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.createTicketForm label {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.createTicketForm input {
+  margin-top: 5px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ffffff;
+}
+
+.createTicketForm .info-helper {
+  font-size: 16px;
+}
+
+.createTicketForm .info-helper-astericks {
+  color: red;
+}
+
+.createTicketForm .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.createTicketForm textarea {
+  margin-top: 10px;
+  border: 1px solid #ffffff;
+  font-size: 14px;
+  height: 100px;
+}
+
+.create-ticket-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  height: 50px;
+  color: #ffffff;
+  border-radius: 15px;
+  background-color: #0170eb;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.category-selection {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.category-selection-option {
+  border-radius: 20px;
+  padding: 7px;
+  cursor: pointer;
+}
+
+.category-equipment {
+  border: 1px solid #017aff;
+}
+
+.category-people {
+  border: 1px solid #e629ff;
+}
+
+.category-track {
+  border: 1px solid #ff6333;
+}
+
+.category-finances {
+  border: 1px solid #49c77b;
+}
+
+.category-other {
+  border: 1px solid #0bc3cf;
+}
+
+.category-equipment-selected {
+  background-color: #017aff;
+  color: white;
+}
+
+.category-people-selected {
+  background-color: #e629ff;
+  color: white;
+}
+
+.category-track-selected {
+  background-color: #ff6333;
+  color: white;
+}
+
+.category-finances-selected {
+  background-color: #49c77b;
+  color: white;
+}
+
+.category-other-selected {
+  background-color: #0bc3cf;
+  color: white;
 }
