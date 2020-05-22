@@ -20,7 +20,7 @@ return (
     <h1>Welcome to DevDesk</h1>
     <div className="form-container">
         <p className="motto">We're here to help.</p>
-        <p className="motto" id="question">Create a help ticket and we'll connect you with a Lambda School Helper. Not a student? Click here.</p>
+        <p className="motto" id="question">Create a help ticket and we'll connect you with a Lambda School Helper. Not a student? <span style={{color: "red", cursor: "pointer"}} onClick={() => history.push("/helper")}>Click here.</span></p>
         <form id="login-form" onSubmit={submitForm}>
             <div className="form-option">
         <label htmlFor="email" id="email-label">Email: </label>
