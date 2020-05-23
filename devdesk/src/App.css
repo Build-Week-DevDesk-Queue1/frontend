@@ -1,41 +1,8 @@
-.App {
-  text-align: center;
-  margin: 0;
-  padding: 20px;
-  border-bottom: 2px solid black;
-}
 
-.App h1 {
- color: turquoise;
- letter-spacing: 3px;
- position: absolute;
- top: 70%;
- right: 30%;
- font-size: 60px;
- -webkit-text-stroke: 0.8px black;
- text-shadow:
-    3px 3px 0 #000,
-  -1px -1px 0 #000,  
-   1px -1px 0 #000,
-   -1px 1px 0 #000,
-    1px 1px 0 #000
-}
-
-html {
-  background: url(https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1887&q=80);
-  background-repeat: no-repeat;
+.App, html {
+  background: url("./cool-background.png");
   background-position: center center;
   background-attachment: fixed;
-  background-size: cover;
-  height: 100vh;
-  width: 100%;
-}
-
-html:after {
-  content: '';
-  background-color: rgb(50, 220, 135, 0.3);
   background-repeat: no-repeat;
-  display: block;
-  background-attachment: fixed;
-  height: 100vh;
+  background-size: cover;
 }

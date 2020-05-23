@@ -8,11 +8,9 @@ import Helper from "./components/Login Form/Helper-Login";
 function App() {
   return (
     <div className="App">
-      <section className="component-box">
         <Route exact path="/" component={Login} />
         <Route exact path="/helper" component={Helper} />
         <Route path="/registration" component={Registration} />
-      </section>
     </div>
   );
   }

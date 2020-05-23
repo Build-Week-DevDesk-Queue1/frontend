@@ -1,6 +1,16 @@
 import React, {useState} from "react";
 import "./Login.css";
 import {useHistory, Link, Route} from "react-router-dom";
+import styled from "styled-components"
+
+const WrapperForm = styled.form `
+background: white;
+padding: 40px;
+max-width: 45%;
+margin: 40px auto;
+border-radius: 2%;
+box-shadow: 0 4px 10px 4px rgba(#13232f, .2);
+`
 
 
 export default function Form() {
@@ -14,27 +24,32 @@ export default function Form() {
     const submitForm = event => {
         event.preventDefault();
 
-        const data = await fetch( '' );
-        let message = "";
+        // const data = await fetch( '' );
+        // let message = "";
 
-        try {
-            (async () => {
-            await Auth.signIn(email, password);
-            userHasAuthenticated(true);
-            // history.push("to queue page");
-            })
-        } catch (err) {
-            alert(err.message);
-        }
+        // try {
+        //     (async () => {
+        //     await Auth.signIn(email, password);
+        //     userHasAuthenticated(true);
+        //     // history.push("to queue page");
+        //     })
+        // } catch (err) {
+        //     alert(err.message);
+        // }
     }
 
 return (
     <>
-    <h1>Welcome to DevDesk</h1>
+    <h1>DevDesk.</h1>
     <div className="form-container">
-        <p className="motto">We're here to help.</p>
+        <p className="motto">We're here to help. Sign up for free.</p>
         <p className="motto" id="question">Create a help ticket and we'll connect you with a Lambda School Helper. Not a student? <span style={{color: "red", cursor: "pointer"}} onClick={() => history.push("/helper")}>Click here.</span></p>
-        <form id="login-form" onSubmit={submitForm}>
+
+        <WrapperForm id="login-form" onSubmit={submitForm}>
+        <div class="button-option">
+<li className="active"><button type="button" id="submit" className="submit-btn" onClick={() => history.push("/registration")}>Register</button></li>
+<li><button type="submit" id="create" className="submit-btn">Login</button></li>
+        </div>
             <div className="form-option">
         <label htmlFor="email" id="email-label">Email: </label>
         <input type="email" onChange={handleChange} className="form" placeholder="Enter your email" value={Input.email} name="email" required/>
@@ -43,11 +58,7 @@ return (
             <label htmlFor="password" id="password-label">Password: </label>
         <input type="password" onChange={handleChange} className="form" placeholder="Enter your password" value={Input.password} name="password" required/>
          </div>
-         <div class="form-option">
-<button type="button" id="submit" className="submit-btn" onClick={() => history.push("/registration")}>Register</button>
-<button type="submit" id="create" className="submit-btn">Login</button>
-        </div>
-        </form>
+        </WrapperForm>
     </div>
     </>
 )
