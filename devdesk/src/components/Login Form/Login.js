@@ -13,6 +13,14 @@ export default function Form() {
 
     const submitForm = event => {
         event.preventDefault();
+
+        try {
+            await Auth.signIn(email, password);
+            userHasAuthenticated(true);
+            // history.push("to queue page");
+        } catch (e) {
+            alert(e.message);
+        }
     }
 
 return (
