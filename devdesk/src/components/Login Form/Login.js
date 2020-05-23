@@ -14,12 +14,17 @@ export default function Form() {
     const submitForm = event => {
         event.preventDefault();
 
+        const data = await fetch( '' );
+        let message = "";
+
         try {
+            (async () => {
             await Auth.signIn(email, password);
             userHasAuthenticated(true);
             // history.push("to queue page");
-        } catch (e) {
-            alert(e.message);
+            })
+        } catch (err) {
+            alert(err.message);
         }
     }
 
