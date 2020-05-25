@@ -4,14 +4,14 @@ import {useHistory, Link, Route} from "react-router-dom";
 import styled from "styled-components"
 
 const WrapperForm = styled.form `
-background: rgba(1, 50, 67, 1);
+background: #F39C11;
 padding: 40px 60px;
 padding-bottom: 10px;
 max-width: 45%;
 margin: 30px auto;
 border-radius: 2%;
 margin-bottom: 6%;
-box-shadow: 0 4px 10px 4px rgba(#13232f, .2);
+box-shadow: 1px 10px 21px -7px rgba(48,47,42,1);
 `
 
 

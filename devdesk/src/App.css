@@ -1,8 +1,24 @@
+body {
+ background: #EBEBEB !important;
+}
 
-.App, html {
-  background: url("./cool-background.png");
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
+.color1 {
+  color:rgba(211, 91, 64, 0.507);
+  opacity: 0.2;
+}
+.color2 {
+  color: #DFD798;
+  opacity: 0.5;
+}
+.color3 {
+  color: #B0C38C;
+  opacity: 0.7;
+}
+.color4 {
+  color: #718C6B;
+  opacity: 0.8;
+}
+.color5 {
+  color: #32595E;
+  opacity: 0.9;
 }
