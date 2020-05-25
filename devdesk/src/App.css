@@ -195,6 +195,8 @@ h6 {
   padding: 20px 0;
 }
 
+.closeTickets,
+.openTickets,
 .createTicket,
 .mytickets,
 .alltickets {
@@ -205,6 +207,7 @@ h6 {
   height: 100%;
 }
 
+.closeTickets,
 .createTicket,
 .mytickets {
   height: 100vh;
@@ -212,7 +215,9 @@ h6 {
 }
 
 .ticket {
+  position: relative;
   display: flex;
+  flex-direction: column;
   background-color: #ffffff;
   margin-bottom: 20px;
   padding: 15px;
@@ -222,9 +227,50 @@ h6 {
   cursor: pointer;
 }
 
+.ticket-dropdown {
+  position: absolute;
+  z-index: 1;
+  border: 1px solid #f2f2f2;
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 8px;
+  top: 35px;
+  right: 5px;
+}
+
+.ticket-dropdown p {
+  margin-bottom: 10px;
+}
+
+.ticket-info {
+  display: flex;
+}
+
+.ticket-more-info {
+  padding-left: 49px;
+}
+
+.attempted-solution {
+  margin: 10px 0;
+}
+
+.additionalInfo {
+  margin-top: 10px;
+}
+
+.what-tried,
+.issue-more-info {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
 .ticket .days {
   text-transform: uppercase;
   text-align: center;
+}
+
+.issue {
+  width: 100%;
 }
 
 .ticket .issue {
@@ -234,6 +280,8 @@ h6 {
 }
 
 .issue-category {
+  display: flex;
+  justify-content: space-between;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;

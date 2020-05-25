@@ -207,12 +207,16 @@ function Helper() {
                 key={ticket.id}
                 className={`ticket ${setCategory(ticket.category)}`}
               >
-                <div className="days">
-                  {ticket.created} <br /> day <br /> old
-                </div>
-                <div className="issue">
-                  <div className="issue-category">{ticket.category} Issue</div>
-                  <div className="issue-title">{ticket.title}</div>
+                <div className="ticket-info">
+                  <div className="days">
+                    {ticket.created} <br /> day <br /> old
+                  </div>
+                  <div className="issue">
+                    <div className="issue-category">
+                      {ticket.category} Issue
+                    </div>
+                    <div className="issue-title">{ticket.title}</div>
+                  </div>
                 </div>
               </div>
             );
@@ -230,12 +234,16 @@ function Helper() {
                 key={ticket.id}
                 className={`ticket ${setCategory(ticket.category)}`}
               >
-                <div className="days">
-                  {ticket.created} <br /> day <br /> old
-                </div>
-                <div className="issue">
-                  <div className="issue-category">{ticket.category} Issue</div>
-                  <div className="issue-title">{ticket.title}</div>
+                <div className="ticket-info">
+                  <div className="days">
+                    {ticket.created} <br /> day <br /> old
+                  </div>
+                  <div className="issue">
+                    <div className="issue-category">
+                      {ticket.category} Issue
+                    </div>
+                    <div className="issue-title">{ticket.title}</div>
+                  </div>
                 </div>
               </div>
             );
