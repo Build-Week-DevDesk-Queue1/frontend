@@ -45,7 +45,7 @@ return (
     <h1>DevDesk.</h1>
     <div className="form-container">
         <p className="motto">We're here to help. Sign up for free.</p>
-        <p className="motto" id="question">Create a help ticket and we'll connect you with a Lambda School Helper. Not a student? <span style={{color: "red", cursor: "pointer"}} onClick={() => history.push("/helper")}>Click here.</span></p>
+        <p className="motto" id="question">Create a help ticket and we'll connect you with a Lambda School Helper. Not a student? <span style={{cursor: "pointer"}} onClick={() => history.push("/helper")}>Click here.</span></p>
 
         <WrapperForm id="login-form" onSubmit={submitForm}>
         <div class="button-option">
@@ -53,12 +53,12 @@ return (
 <li><button type="submit" id="create" className="submit-btn">Login</button></li>
         </div>
             <div className="form-option">
-        <label htmlFor="email" id="email-label">Email: </label>
-        <input type="email" onChange={handleChange} className="form" value={Input.email} name="email" required/>
+        <label className="active" htmlFor="email" id="email-label">Email: </label>
+        <input type="email" onChange={handleChange} className="active" placeholder="What's your email?" value={Input.email} name="email" required/>
         </div>
         <div className="form-option">
-            <label htmlFor="password" id="password-label">Password: </label>
-        <input type="password" onChange={handleChange} className="form" value={Input.password} name="password" required/>
+            <label className="active" htmlFor="password" id="password-label">Password: </label>
+        <input type="password" onChange={handleChange} className="active" placeholder="What's your password?" value={Input.password} name="password" required/>
          </div>
         </WrapperForm>
     </div>

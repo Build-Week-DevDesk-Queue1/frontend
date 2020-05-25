@@ -34,12 +34,12 @@ export default function HelperForm() {
 <li className="active"><button type="button" id="submit" className="submit-btn" onClick={() => history.push("/registration")}>Register</button></li>
 <li><button type="submit" id="create" className="submit-btn">Login</button></li>
 </div>
-        <label htmlFor="email" id="email-label">Email: </label>
-        <input type="email" onChange={handleChange} className="form" value={Input.email} name="email" required/>
+        <label className="active" htmlFor="email" id="email-label">Email: </label>
+        <input type="email" onChange={handleChange} className="form" placeholder="What's your email?" value={Input.email} name="email" required/>
         </div>
         <div className="form-option">
-            <label htmlFor="password" id="password-label">Password: </label>
-        <input type="password" onChange={handleChange} className="form" value={Input.password} name="password" required/>
+            <label className="active" htmlFor="password" id="password-label">Password: </label>
+        <input type="password" onChange={handleChange} className="form" placeholder="What's your password?" value={Input.password} name="password" required/>
          </div>
         </Wrapper>
     </div>
