@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {Link, useHistory} from "react-router-dom";
 import Login from "./Login";
+import styled from "styled-components";
 
 export default function Registration() {
     const [Input, setInput] = useState({ name: '', email: '', password: '', select: 'student'});
@@ -32,7 +33,7 @@ export default function Registration() {
           <input type="email" class="form" id="email" placeholder="Enter your email" name="email" onChange={handleChange} value={Input.email} required/>
           </div>
           <div className="form-option">
-          <label htmlFor="password" id="name-label">Name: </label>
+          <label htmlFor="password" id="name-label">Password: </label>
           <input type="password" class="form" id="password" placeholder="Enter your name" name="password" onChange={handleChange} value={Input.password} required/>
           </div>
           <div className="form-option">

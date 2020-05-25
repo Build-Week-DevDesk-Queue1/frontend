@@ -4,11 +4,13 @@ import {useHistory, Link, Route} from "react-router-dom";
 import styled from "styled-components"
 
 const WrapperForm = styled.form `
-background: white;
-padding: 40px;
+background: rgba(1, 50, 67, 1);
+padding: 40px 60px;
+padding-bottom: 10px;
 max-width: 45%;
-margin: 40px auto;
+margin: 30px auto;
 border-radius: 2%;
+margin-bottom: 6%;
 box-shadow: 0 4px 10px 4px rgba(#13232f, .2);
 `
 
@@ -52,11 +54,11 @@ return (
         </div>
             <div className="form-option">
         <label htmlFor="email" id="email-label">Email: </label>
-        <input type="email" onChange={handleChange} className="form" placeholder="Enter your email" value={Input.email} name="email" required/>
+        <input type="email" onChange={handleChange} className="form" value={Input.email} name="email" required/>
         </div>
         <div className="form-option">
             <label htmlFor="password" id="password-label">Password: </label>
-        <input type="password" onChange={handleChange} className="form" placeholder="Enter your password" value={Input.password} name="password" required/>
+        <input type="password" onChange={handleChange} className="form" value={Input.password} name="password" required/>
          </div>
         </WrapperForm>
     </div>
