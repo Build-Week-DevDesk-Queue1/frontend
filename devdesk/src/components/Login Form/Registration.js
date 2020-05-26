@@ -57,7 +57,7 @@ export default function Registration() {
           </select>
           </div>
     <div className="form-option">
-    <Button type="submit" id="submit" class="submit-btn">Submit</Button>
+    <Button type="submit" id="submit-button" class="submit-btn">Submit</Button>
     </div>
     </Register>
     </div>

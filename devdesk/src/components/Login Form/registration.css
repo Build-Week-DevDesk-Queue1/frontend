@@ -24,7 +24,7 @@ label.active {
     text-align: center;
 }
 
-#submit {
+#submit-button {
     background-color: red;
     border: none;
     width: 100%;
@@ -33,7 +33,7 @@ label.active {
     transition: background-color .5s ease;
 }
 
-#submit:hover {
+#submit-button:hover {
     background-color: purple;
 }
 
