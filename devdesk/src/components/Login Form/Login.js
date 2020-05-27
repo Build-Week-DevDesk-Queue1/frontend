@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "./Login.css";
 import {useHistory, Link, Route} from "react-router-dom";
 import styled from "styled-components"
+import { Button } from 'reactstrap';
 
 const WrapperForm = styled.form `
 background: #FF6332;
@@ -34,9 +35,11 @@ return (
     <h1>DevDesk.</h1>
     <div className="form-container">
         <p className="motto">We're here to help.</p>
+            <div className="center">
+        <button type="button" id="signup" className="submit-btn" onClick={() => history.push("/registration")}>Sign Up for Free</button>
+        </div>
         <p className="motto" id="question">Create a help ticket and we'll connect you with a Lambda School Helper. Not a student? <span style={{cursor: "pointer"}} onClick={() => history.push("/helper")}>Click here.</span></p>
 
-        <button type="button" id="submit" className="submit-btn" onClick={() => history.push("/registration")}>Sign Up for Free</button>
         <WrapperForm id="login-form" onSubmit={submitForm}>
         <div class="button-option">
         </div>

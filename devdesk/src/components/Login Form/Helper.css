@@ -17,24 +17,7 @@
     margin: 50px;
 }
 
-.button-box {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 40px 0;
-}
-
-.button-box::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-li .active {
-    background: #1AB188;
-    color: white;
-}
-
-li button {
+ button {
     display: block;
     padding: 15px;
     background-color: #0AC3CF;
@@ -43,13 +26,11 @@ li button {
     width: 50%;
     text-align: center;
     cursor: pointer;
-    float: left;
+    margin-top: 0;
 }
 
-li button:hover {
+ button:hover {
     transition: .5s ease;
-    background: #777;
-    color: white;
 }
 
 label {

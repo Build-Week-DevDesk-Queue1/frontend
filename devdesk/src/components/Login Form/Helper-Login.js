@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "./Helper.css";
 import {useHistory} from "react-router-dom";
 import styled from "styled-components";
+import { Button } from 'reactstrap';
 
 const Wrapper = styled.form `
 background: #A0E0BB;
@@ -29,12 +30,9 @@ export default function HelperForm() {
     return(
         <div className="form-box">
         <p className="motto">Welcome Helper!</p>
+        <Button color="primary" type="button" id="signup" className="submit-btn" onClick={() => history.push("/registration")}>Sign Up?</Button>
         <Wrapper id="login-form" onSubmit={submitForm}>
             <div className="form-option">
-            <div class="button-box">
-<li className="active"><button type="button" id="submit" className="submit-btn" onClick={() => history.push("/registration")}>Register</button></li>
-<li><button type="submit" id="create" className="submit-btn">Login</button></li>
-</div>
         <label className="active" htmlFor="email" id="email-label">Email: </label>
         <input type="email" onChange={handleChange} className="form" placeholder="What's your email?" value={Input.email} name="email" required/>
         </div>
@@ -42,6 +40,7 @@ export default function HelperForm() {
             <label className="active" htmlFor="password" id="password-label">Password: </label>
         <input type="password" onChange={handleChange} className="form" placeholder="What's your password?" value={Input.password} name="password" required/>
          </div>
+         <button type="submit" id="create" className="submit-btn">Login</button>
         </Wrapper>
     </div>
 

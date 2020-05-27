@@ -6,7 +6,7 @@
 
 .motto {
     text-align: center;
-    font-size: 20px;
+    font-size: 26px;
     color: black;
     line-height: 30px;
     font-weight: 300;
@@ -16,7 +16,7 @@
 h1 {
     color: #111;
     text-align: center;
-    font-family: "Iceland", sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
     text-shadow: 2px 2px #C716C4;
     font-size: 275px !important;
     font-weight: bold;
@@ -36,16 +36,9 @@ h1 {
     background-size: 4px 50px;
 }
 
-/* li .active {
-    background: #1AB188;
-    color: white;
-} */
-
 button {
     display: block;
     padding: 15px;
-    background-color: #7550A4;
-    color: white;
     text-align: center;
     cursor: pointer;
     opacity: 1;
@@ -55,17 +48,32 @@ button {
 form button {
     margin: 0 auto;
     font-size: 20px;
+    background-color: #0AC3CF;
+    color: black;
 }
 
-#submit {
-    width: 20%;
+form button:hover {
+    background: #7550A4;
+    color: white;
+}
+
+#signup {
+    font-size: 50px;
+    width: 30%;
+    margin-top: 0;
+    border-style: none;
     margin: 0 auto;
-    font-size: 20px;
+    background-color: white;
+    color: black;
+    font-family: 'Source Sans Pro', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: underline;
+    text-decoration-color: #c716c7;
 }
 
 button:hover {
-    background: #0AC3CF;
-    color: black;
     transition: .5s ease;
 }
 
