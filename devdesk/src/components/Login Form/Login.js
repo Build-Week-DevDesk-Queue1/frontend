@@ -39,7 +39,7 @@ return (
         <button type="button" id="signup" className="submit-btn" onClick={() => history.push("/registration")}>Sign Up for Free</button>
         </div>
         <p className="motto" id="question">Create a help ticket and we'll connect you with a Lambda School Helper. Not a student? <span style={{cursor: "pointer"}} onClick={() => history.push("/helper")}>Click here.</span></p>
-
+        <div className="test"></div>
         <WrapperForm id="login-form" onSubmit={submitForm}>
         <div class="button-option">
         </div>
