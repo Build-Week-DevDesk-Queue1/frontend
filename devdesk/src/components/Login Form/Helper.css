@@ -1,64 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
-
-* {
-    box-sizing: border-box;
-}
-
 .form-box {
-    margin-top: 100px;
+  margin-top: 100px;
 }
 
 .form-box p {
-    color: #111;
-    text-align: center;
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 100px !important;
-    text-shadow: 3px 3px #C716C4;
-    margin: 50px;
+  color: #111;
+  text-align: center;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 100px !important;
+  text-shadow: 3px 3px #c716c4;
+  margin: 50px;
 }
 
- button {
-    display: block;
-    padding: 15px;
-    background-color: #0AC3CF;
-    color: white;
-    font-size: 20px;
-    width: 50%;
-    text-align: center;
-    cursor: pointer;
-    margin-top: 0;
+button {
+  display: block;
+  padding: 15px;
+  background-color: #0ac3cf;
+  color: white;
+  font-size: 20px;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 0;
 }
 
- button:hover {
-    transition: .5s ease;
-}
-
-label {
-    position: absolute;
-    transform: translateY(6px);
-    left: 13px;
-    color: black;
-    pointer-events: none;
-    font-size: 22px;
+button:hover {
+  transition: 0.5s ease;
 }
 
 .form-option {
-    position: relative;
-    margin-bottom: 40px;
+  position: relative;
+  margin-bottom: 40px;
 }
 
 input {
-    width: 100%;
-    height: 100%;
-    display: block;
-    font-size: 20px;
-    padding: 10px 10px;
-    border: 2px solid #7550A4;
-    border-radius: 5px;
-    transition: border-color .25s ease;
+  width: 100%;
+  height: 100%;
+  display: block;
+  font-size: 20px;
+  padding: 10px 10px;
+  border: 2px solid #7550a4;
+  border-radius: 5px;
+  transition: border-color 0.25s ease;
 }
 
 input:hover {
-    border-color: #0AC3CF;
+  border-color: #0ac3cf;
 }
-
