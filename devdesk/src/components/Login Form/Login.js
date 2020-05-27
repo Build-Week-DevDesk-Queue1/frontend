@@ -4,8 +4,9 @@ import {useHistory, Link, Route} from "react-router-dom";
 import styled from "styled-components"
 
 const WrapperForm = styled.form `
-background: #F39C11;
+background: #FF6332;
 padding: 40px 60px;
+border: 1px solid #777;
 padding-bottom: 10px;
 max-width: 45%;
 margin: 30px auto;
@@ -25,19 +26,7 @@ export default function Form() {
 
     const submitForm = event => {
         event.preventDefault();
-
-        // const data = await fetch( '' );
-        // let message = "";
-
-        // try {
-        //     (async () => {
-        //     await Auth.signIn(email, password);
-        //     userHasAuthenticated(true);
-        //     // history.push("to queue page");
-        //     })
-        // } catch (err) {
-        //     alert(err.message);
-        // }
+        // push post request to login endpoints here
     }
 
 return (

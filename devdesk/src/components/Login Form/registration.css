@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
 .main-info h1 {
     font-size: 100px !important;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .main-info p {
@@ -25,7 +28,7 @@ label.active {
 }
 
 #submit-button {
-    background-color: red;
+    background-color: purple;
     border: none;
     width: 100%;
     height: 60px;
@@ -34,6 +37,6 @@ label.active {
 }
 
 #submit-button:hover {
-    background-color: purple;
+    background-color: #C716C4;
 }
 

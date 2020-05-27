@@ -5,8 +5,9 @@ import "./registration.css";
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const Register = styled.form `
-background: #F39C11;
+background: #007AFF;
 padding: 40px 60px;
+border: 1px solid #777;
 padding-bottom: 10px;
 max-width: 45%;
 margin: 30px auto;

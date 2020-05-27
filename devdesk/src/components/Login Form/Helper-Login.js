@@ -4,7 +4,8 @@ import {useHistory} from "react-router-dom";
 import styled from "styled-components";
 
 const Wrapper = styled.form `
-background: #F39C11;
+background: #A0E0BB;
+border: 1px solid #777;
 padding: 40px 60px;
 padding-bottom: 10px;
 max-width: 45%;

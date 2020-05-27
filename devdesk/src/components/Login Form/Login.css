@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Hind&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
 * {
     box-sizing: border-box;
@@ -11,21 +10,21 @@
     color: black;
     line-height: 30px;
     font-weight: 300;
-    font-family: "Hind", sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
 }
 
 h1 {
     color: #111;
     text-align: center;
     font-family: "Iceland", sans-serif;
-    text-shadow: 2px 2px #FF0000;
+    text-shadow: 2px 2px #C716C4;
     font-size: 275px !important;
     font-weight: bold;
     letter-spacing: -5px;
 }
 
 .motto span {
-    background: linear-gradient(to bottom, #FF0000 0%, #FF0000 100%);
+    background: linear-gradient(to bottom, #c716c7 0%, #c716c7 100%);
     background-position: 0 100%;
     background-repeat: repeat-x;
     background-size: 10px 5px;
