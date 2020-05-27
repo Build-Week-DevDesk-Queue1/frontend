@@ -36,42 +36,37 @@ h1 {
     background-size: 4px 50px;
 }
 
-.button-option {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 40px 0;
-}
-
-.button-option::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 /* li .active {
     background: #1AB188;
     color: white;
 } */
 
-li button {
+button {
     display: block;
     padding: 15px;
-    background-color: #C33B32;
+    background-color: #7550A4;
     color: white;
-    font-size: 20px;
-    width: 50%;
     text-align: center;
     cursor: pointer;
-    float: left;
     opacity: 1;
+    width: 50%;
 }
 
-li button:hover {
-    background: #F39C11;
-    border: 1px solid black;
+form button {
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+#submit {
+    width: 20%;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+button:hover {
+    background: #0AC3CF;
     color: black;
     transition: .5s ease;
-    box-shadow: 0px -5px 11px 0px rgba(0,0,0,0.75);
 }
 
 label {

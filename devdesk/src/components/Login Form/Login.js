@@ -33,13 +33,12 @@ return (
     <>
     <h1>DevDesk.</h1>
     <div className="form-container">
-        <p className="motto">We're here to help. Sign up for free.</p>
+        <p className="motto">We're here to help.</p>
         <p className="motto" id="question">Create a help ticket and we'll connect you with a Lambda School Helper. Not a student? <span style={{cursor: "pointer"}} onClick={() => history.push("/helper")}>Click here.</span></p>
 
+        <button type="button" id="submit" className="submit-btn" onClick={() => history.push("/registration")}>Sign Up for Free</button>
         <WrapperForm id="login-form" onSubmit={submitForm}>
         <div class="button-option">
-<li className="active"><button type="button" id="submit" className="submit-btn" onClick={() => history.push("/registration")}>Register</button></li>
-<li><button type="submit" id="create" className="submit-btn">Login</button></li>
         </div>
             <div className="form-option">
         <label className="active" htmlFor="email" id="email-label">Email: </label>
@@ -49,6 +48,7 @@ return (
             <label className="active" htmlFor="password" id="password-label">Password: </label>
         <input type="password" onChange={handleChange} className="active" placeholder="What's your password?" value={Input.password} name="password" required/>
          </div>
+         <button type="submit" id="create" className="submit-btn">Login</button>
         </WrapperForm>
     </div>
     </>
