@@ -43,17 +43,6 @@ export default function Form() {
             Sign Up for Free
           </button>
         </div>
-        <p className="motto" id="question">
-          Create a help ticket and we'll connect you with a Lambda School
-          Helper. Not a student?{" "}
-          <span
-            style={{ cursor: "pointer" }}
-            onClick={() => history.push("/helper")}
-          >
-            Click here.
-          </span>
-        </p>
-
         <WrapperForm id="login-form" onSubmit={submitForm}>
           <div className="button-option"></div>
           <div className="form-option">
