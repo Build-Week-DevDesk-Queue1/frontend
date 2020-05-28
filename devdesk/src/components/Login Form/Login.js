@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import axios from "axios";
 
 const WrapperForm = styled.form`
   background: #ff6332;
@@ -16,7 +17,7 @@ const WrapperForm = styled.form`
 `;
 
 export default function Form() {
-  const [Input, setInput] = useState({ email: "", password: "" });
+  const [Input, setInput] = useState({ username: "", password: "" });
   const history = useHistory();
 
   const handleChange = event => {
@@ -25,7 +26,21 @@ export default function Form() {
 
   const submitForm = event => {
     event.preventDefault();
-    // push post request to login endpoints here
+    if (!Input.username && !Input.password) {
+      return;
+    }
+
+    axios
+      .post("https://the-queue1.herokuapp.com/api/auth/login", {
+        username: Input.username,
+        password: Input.password
+      })
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err.response.data);
+      });
   };
 
   return (
@@ -43,6 +58,10 @@ export default function Form() {
             Sign Up for Free
           </button>
         </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> addbackend
         <WrapperForm id="login-form" onSubmit={submitForm}>
           <div className="button-option"></div>
           <div className="form-option">
@@ -50,12 +69,12 @@ export default function Form() {
               Email:{" "}
             </label>
             <input
-              type="email"
+              type="text"
               onChange={handleChange}
               className="active"
-              placeholder="What's your email?"
-              value={Input.email}
-              name="email"
+              placeholder="What's your username?"
+              value={Input.username}
+              name="username"
               required
             />
           </div>
