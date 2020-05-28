@@ -1,23 +1,611 @@
-* {
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Spectral:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap");
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* my styles */
+
+:root {
   box-sizing: border-box;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Spectral", serif;
+}
+
+:root {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Spectral", serif;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.student-sidebar,
+.sidebar {
+  width: 20%;
+}
+
+.student-sidebar h2,
+.sidebar h2 {
+  font-size: 24px;
+}
+
+.option-list {
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.option-list li {
+  margin-bottom: 10px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.option-list li:last-child {
+  margin-bottom: 0;
+}
+
+.student-main-content,
+.main-content {
+  flex: 1;
+  background-color: #f9fafb;
+  height: 100%;
+  padding: 20px 0;
+}
+
+.closeTickets,
+.openTickets,
+.createTicket,
+.mytickets,
+.alltickets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.closeTickets,
+.createTicket,
+.mytickets {
+  height: 100vh;
+  min-height: 100%;
+}
+
+.ticket {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  padding: 15px;
+  width: 80%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  cursor: pointer;
+}
+
+.ticket-dropdown {
+  position: absolute;
+  z-index: 1;
+  border: 1px solid #f2f2f2;
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 8px;
+  top: 35px;
+  right: 5px;
+}
+
+.ticket-dropdown p {
+  margin-bottom: 10px;
+}
+
+.ticket-info {
+  display: flex;
+}
+
+.ticket-more-info {
+  padding-left: 49px;
+}
+
+.attempted-solution {
+  margin: 10px 0;
+}
+
+.additionalInfo {
+  margin-top: 10px;
+}
+
+.what-tried,
+.issue-more-info {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.ticket .days {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.issue {
+  width: 100%;
+}
+
+.ticket .issue {
+  margin-left: 20px;
+  border-left: 1px solid #e0e0e0;
+  padding-left: 10px;
+}
+
+.issue-category {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.issue-title {
+  font-weight: lighter;
+}
+
+.equipment {
+  border-left: 5px solid #017aff;
+}
+
+.people {
+  border-left: 5px solid #e629ff;
+}
+
+.track {
+  border-left: 5px solid #ff6333;
+}
+
+.finance {
+  border-left: 5px solid #49c77b;
+}
+
+.other {
+  border-left: 5px solid #0bc3cf;
+}
+
+.selected-option {
+  background-color: #f3fcff;
+  border-left: 5px solid #49c9e8;
+  font-weight: bold;
+}
+
+.dashboard-brandname {
+  padding: 20px;
+}
+
+.filter-tickets {
+  padding: 20px;
+  cursor: pointer;
+}
+
+.filter-tickets .filters {
+  margin-bottom: 15px;
+}
+
+.urgency-filter-option,
+.status-filter-option,
+.assign-filter-option,
+.category-filter-option,
+.filter-options {
+  display: none;
+}
+
+.urgency-filter-option.filter-reveal,
+.assign-filter-option.filter-reveal,
+.status-filter-option.filter-reveal,
+.category-filter-option.filter-reveal,
+.filter-options.filter-reveal {
+  display: block;
+}
+
+.filter-options p {
+  margin-bottom: 15px;
+}
+
+.ticket-modal {
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.ticket-modal-info {
+  width: 400px;
+  padding: 20px;
+  border: 1px solid #ffffff;
+  background-color: white;
+}
+
+.ticket-modal-category {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.ticket-modal-title {
+  font-size: 18px;
+}
+
+.ticket-modal-tried-heading,
+.ticket-modal-description-heading {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.ticket-modal-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ticket-modal-options-variant {
+  margin-bottom: 10px;
+}
+
+.ticket-modal-close {
+  color: red;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.assign-ticket-btn {
+  color: #0170eb;
+  padding: 4px;
+  width: 100px;
+  border: 2px solid #0170eb;
+  background-color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.unassign-ticket-btn,
+.resolve-ticket-btn:focus,
+.assign-ticket-btn:focus {
+  outline: 0;
+}
+
+.resolve-ticket-btn {
+  color: red;
+  padding: 4px;
+  width: 100px;
+  border: 2px solid red;
+  background-color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.unassign-ticket-btn {
+  color: #535575;
+  padding: 4px;
+  width: 100px;
+  border: 2px solid #535575;
+  background-color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.more-info {
+  margin-top: 20px;
+}
+
+.tried {
+  margin-top: 20px;
+}
+
+.createTicketForm {
+  width: 40%;
+}
+
+.createTicketForm h2 {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.createTicketForm label {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.createTicketForm input {
+  margin-top: 5px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ffffff;
+}
+
+.createTicketForm .info-helper {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.createTicketForm .info-helper-astericks {
+  color: red;
+}
+
+.createTicketForm .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.createTicketForm textarea {
+  margin-top: 10px;
+  border: 1px solid #ffffff;
+  font-size: 14px;
+  height: 100px;
+}
+
+.create-ticket-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  height: 50px;
+  color: #ffffff;
+  border-radius: 15px;
+  background-color: #0170eb;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.category-selection {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.category-selection-option {
+  border-radius: 20px;
+  padding: 7px;
+  cursor: pointer;
+}
+
+.category-equipment {
+  border: 1px solid #017aff;
+}
+
+.category-people {
+  border: 1px solid #e629ff;
+}
+
+.category-track {
+  border: 1px solid #ff6333;
+}
+
+.category-finances {
+  border: 1px solid #49c77b;
+}
+
+.category-other {
+  border: 1px solid #0bc3cf;
+}
+
+.category-equipment-selected {
+  background-color: #017aff;
+  color: white;
+}
+
+.category-people-selected {
+  background-color: #e629ff;
+  color: white;
+}
+
+.category-track-selected {
+  background-color: #ff6333;
+  color: white;
+}
+
+.category-finances-selected {
+  background-color: #49c77b;
+  color: white;
+}
+
+.category-other-selected {
+  background-color: #0bc3cf;
+  color: white;
+}
+
 .color1 {
-  color:rgba(211, 91, 64, 0.507);
+  color: rgba(211, 91, 64, 0.507);
   opacity: 0.2;
 }
 .color2 {
-  color: #DFD798;
+  color: #dfd798;
   opacity: 0.5;
 }
 .color3 {
-  color: #B0C38C;
+  color: #b0c38c;
   opacity: 0.7;
 }
 .color4 {
-  color: #718C6B;
+  color: #718c6b;
   opacity: 0.8;
 }
 .color5 {
-  color: #32595E;
+  color: #32595e;
   opacity: 0.9;
 }
