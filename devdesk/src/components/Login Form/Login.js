@@ -58,10 +58,6 @@ export default function Form() {
             Sign Up for Free
           </button>
         </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> addbackend
         <WrapperForm id="login-form" onSubmit={submitForm}>
           <div className="button-option"></div>
           <div className="form-option">
