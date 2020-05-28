@@ -1,4 +1,6 @@
-
+* {
+  box-sizing: border-box;
+}
 .color1 {
   color:rgba(211, 91, 64, 0.507);
   opacity: 0.2;

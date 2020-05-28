@@ -6,13 +6,12 @@ import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const Register = styled.form `
 background: #007AFF;
-padding: 40px 60px;
+padding: 40px 30px;
 border: 1px solid #777;
 padding-bottom: 10px;
-max-width: 45%;
-margin: 30px auto;
+width: 450px;
+margin: 20px auto;
 border-radius: 2%;
-margin-bottom: 6%;
 box-shadow: 1px 10px 21px -7px rgba(48,47,42,1);
 `
 

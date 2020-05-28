@@ -1,115 +1,140 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
-* {
-    box-sizing: border-box;
+
+h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 5rem !important;
+    text-align: center;
 }
 
 .motto {
+    font-size: 2rem;
+    letter-spacing: 5px;
     text-align: center;
-    font-size: 26px;
-    color: black;
-    line-height: 30px;
-    font-weight: 300;
-    font-family: "Source Sans Pro", sans-serif;
+    animation: color-change 5s ease-in-out infinite;
+
 }
 
-h1 {
-    color: #111;
-    text-align: center;
-    font-family: "Source Sans Pro", sans-serif;
-    text-shadow: 2px 2px #C716C4;
-    font-size: 275px !important;
-    font-weight: bold;
-    letter-spacing: -5px;
+@keyframes color-change {
+    0% { color: #c716C4; }
+    30% { color: #007AFF }
+    50% { color: #0AC3CF; }
+    100% { color: #FF6332; }
 }
 
-.motto span {
-    background: linear-gradient(to bottom, #c716c7 0%, #c716c7 100%);
-    background-position: 0 100%;
-    background-repeat: repeat-x;
-    background-size: 10px 5px;
-    color: black;
-    transition: background-size .2s;
-}
-
-.motto span:hover {
-    background-size: 4px 50px;
-}
-
-button {
-    display: block;
-    padding: 15px;
-    text-align: center;
-    cursor: pointer;
-    opacity: 1;
-    width: 50%;
-}
-
-form button {
-    margin: 0 auto;
-    font-size: 20px;
-    background-color: #0AC3CF;
-    color: black;
-}
-
-form button:hover {
-    background: #7550A4;
-    color: white;
-}
-
-#signup {
-    font-size: 50px;
+.end-motto {
     width: 30%;
-    margin-top: 0;
-    border-style: none;
+    padding: 10px;
+    height: 3%;
+    font-size: 1.4rem;
+    margin-top: 20px;
+    border: none;
     margin: 0 auto;
-    background-color: white;
-    color: black;
-    font-family: 'Source Sans Pro', sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: underline;
-    text-decoration-color: #c716c7;
+    background: none;
 }
 
-button:hover {
-    transition: .5s ease;
-}
+ .active {
+     opacity: 0;
+     display: none;
+ }
 
-label {
-    position: absolute;
-    transform: translateY(6px);
-    left: 13px;
-    color: black;
-    pointer-events: none;
-    font-size: 22px;
-}
+ .form-container {
+     width: 100%;
+     height: 100%;
+     margin: 0 auto;
+ }
 
-.form-option {
-    position: relative;
-    margin-bottom: 40px;
-}
+ #wrapper {
+     width: 325px;
+     height: auto;
+     margin: 0 auto;
+     background: #fff;
+     border: thin solid #ededed;
+ }
 
-input {
-    width: 100%;
-    height: 100%;
-    display: block;
-    font-size: 25px;
-    padding: 10px 10px;
-    border: 2px solid #7550A4;
-    border-radius: 5px;
-    transition: border-color .25s ease;
-}
+ #wrapper > span {
+     width: 40px;
+     height: auto;
+     display: block;
+     margin: 0 auto;
+     margin-top: 20px;
+ }
 
-input:hover {
-    border-color: #C33B32;
-}
+  h3 {
+     text-transform: uppercase;
+     text-align: center;
+     font-size: 1.5rem;
+     color: #777;
+     font-family: 'Source Sans Pro', sans-serif;
+     margin: 0 0 35px 0;
+     padding: 10px;
+ }
 
-label.active {
-    transform: translateY(50px);
-    left: 2px;
-    font-size: 14px;
-    opacity: 0;
-}
+ #wrapper > form {
+     width: 100%;
+     height: auto;
+     margin: 0 auto;
+     text-align: center;
+ }
 
+ input {
+    width: 260px;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1.5px solid #cccccc;
+ }
+
+ .form-option {
+     margin: 10px;
+ }
+
+ ::-webkit-input-placeholder {
+     color: #777;
+     font-weight: bold;
+     font-size: 1rem;
+     font-family: 'Source Sans Pro', sans-serif;
+ }
+
+ .login-btn {
+     width: 200px;
+     height: 50px;
+     background: #0AC3CF;
+     border: none;
+     display: block;
+     margin: 0 auto;
+     color: #fff;
+     text-transform: uppercase;
+     text-align: center;
+     border-radius: 3px;
+     cursor: pointer;
+     font-weight: 700;
+     font-size: 1rem;
+     margin-bottom: 10px;
+     transition: backgroundColor .2s ease;
+ }
+
+ .login-btn:hover {
+     background-color: #A0E0BB;
+ }
+
+ .signup {
+     width: 100%;
+     height: auto;
+     border: none;
+     background: #f5f5f5;
+     margin: 0 auto;
+     padding: 20px;
+     display: block;
+     color: grey;
+     text-transform: uppercase;
+     text-align: center;
+     box-sizing: border-box;
+ }
+
+.signup > p {
+    font-size: .9rem;
+    font-family: 'Source Sans Pro', sans-serif;
+}
