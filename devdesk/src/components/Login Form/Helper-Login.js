@@ -2,9 +2,10 @@ import React, {useState} from "react";
 import "./Login.css";
 import {useHistory, Link} from "react-router-dom";
 import styled from "styled-components";
+import axios from "axios";
 
 export default function HelperForm() {
-    const [Input, setInput] = useState({ email: '', password: ''});
+    const [Input, setInput] = useState({ username: '', password: ''});
     const history = useHistory();
 
     const handleChange = event => {
