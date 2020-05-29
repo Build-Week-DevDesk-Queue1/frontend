@@ -13,7 +13,23 @@ export default function HelperForm() {
 
     const submitForm = event => {
         event.preventDefault();
-    }
+        if (!Input.username && !Input.password) {
+            return;
+          }
+      
+          axios
+            .post("https://the-queue1.herokuapp.com/api/auth/login", {
+              username: Input.username,
+              password: Input.password
+            })
+            .then(res => {
+              console.log(res.data);
+            })
+            .catch(err => {
+              console.log(err.response.data);
+            });
+        };
+
     return(
         <>
             <h1>DevDesk.</h1>
