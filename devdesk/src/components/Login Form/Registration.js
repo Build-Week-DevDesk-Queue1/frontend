@@ -8,15 +8,18 @@ import { userAction } from "../../actions";
 const { registerUser } = userAction;
 
 const Register = styled.form`
-  background: #007aff;
-  padding: 40px 60px;
-  border: 1px solid #777;
-  padding-bottom: 10px;
-  max-width: 45%;
-  margin: 30px auto;
-  border-radius: 2%;
-  margin-bottom: 6%;
-  box-shadow: 1px 10px 21px -7px rgba(48, 47, 42, 1);
+background: white;
+padding: 40px 60px;
+padding: 40px 30px;
+border: 1px solid #F5F5F5;
+padding-bottom: 10px;
+max-width: 45%;
+margin: 30px auto;
+width: 450px;
+margin: 20px auto;
+border-radius: 2%;
+margin-bottom: 6%;
+box-shadow: 1px 10px 21px -7px rgba(48,47,42,1);
 `;
 
 export default function Registration() {
