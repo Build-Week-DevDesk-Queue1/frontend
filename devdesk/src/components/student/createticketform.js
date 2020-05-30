@@ -1,24 +1,43 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import axiosWithAuth from "../../util/axiosWithAuth";
+import { ticketAction } from "../../actions";
+const { createStudentTicket } = ticketAction;
 
 function CreateTicketForm() {
+  const categories = ["equipment", "people", "track", "finances", "other"];
   const [createTicket, setCreateTicket] = useState({
     title: "",
+    category: null,
     tried: "",
-    additionalInfo: ""
+    additional_info: ""
   });
-
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const dispatch = useDispatch();
 
   function handleChange(e) {
     setCreateTicket({ ...createTicket, [e.target.name]: e.target.value });
   }
 
   function setCategory(e) {
-    setSelectedCategory(+e.target.getAttribute("data-id"));
+    setCreateTicket({
+      ...createTicket,
+      category: +e.target.getAttribute("data-id")
+    });
+  }
+
+  function onFormSubmit(e) {
+    e.preventDefault();
+    if (!createTicket.title && !createTicket.category) {
+      return;
+    }
+    const selectedCategory = categories[createTicket.category];
+    let newTicket = { ...createTicket, category: selectedCategory };
+
+    dispatch(createStudentTicket(newTicket));
   }
 
   return (
-    <form className="createTicketForm">
+    <form onSubmit={onFormSubmit} className="createTicketForm">
       <h2>Let's submit a help ticket.</h2>
       <p className="info-helper">
         <span className="info-helper-astericks">*</span> Required Fields
@@ -45,7 +64,7 @@ function CreateTicketForm() {
             data-id="0"
             onClick={setCategory}
             className={
-              selectedCategory + "" === "0"
+              createTicket.category + "" === "0"
                 ? "category-selection-option category-equipment category-equipment-selected"
                 : "category-selection-option category-equipment"
             }
@@ -56,7 +75,7 @@ function CreateTicketForm() {
             data-id="1"
             onClick={setCategory}
             className={
-              selectedCategory + "" === "1"
+              createTicket.category + "" === "1"
                 ? "category-selection-option category-people category-people-selected"
                 : "category-selection-option category-people"
             }
@@ -67,7 +86,7 @@ function CreateTicketForm() {
             data-id="2"
             onClick={setCategory}
             className={
-              selectedCategory + "" === "2"
+              createTicket.category + "" === "2"
                 ? "category-selection-option category-track category-track-selected"
                 : "category-selection-option category-track"
             }
@@ -78,7 +97,7 @@ function CreateTicketForm() {
             data-id="3"
             onClick={setCategory}
             className={
-              selectedCategory + "" === "3"
+              createTicket.category + "" === "3"
                 ? "category-selection-option category-finances category-finances-selected"
                 : "category-selection-option category-finances"
             }
@@ -89,7 +108,7 @@ function CreateTicketForm() {
             data-id="4"
             onClick={setCategory}
             className={
-              selectedCategory + "" === "4"
+              createTicket.category + "" === "4"
                 ? "category-selection-option category-other category-other-selected"
                 : "category-selection-option category-other"
             }
@@ -112,9 +131,9 @@ function CreateTicketForm() {
       <div className="form-group">
         <label>Anything else we should know?</label>
         <textarea
-          value={createTicket.additionalInfo}
+          value={createTicket.additional_info}
           onChange={handleChange}
-          name="additionalInfo"
+          name="additional_info"
           id=""
           cols="10"
           rows="10"
