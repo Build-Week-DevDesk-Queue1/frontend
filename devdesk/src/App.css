@@ -529,6 +529,7 @@ h6 {
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
+  border: 1px solid #0170eb;
 }
 
 .category-selection {
