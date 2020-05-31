@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "./modal";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import AllTicketModal from "./helperallticketmodal";
+import MyTicketModal from "./helpermyticketmodal";
+import { ticketAction } from "../../actions";
+const { helperGetAllTickets } = ticketAction;
 
 function setCategory(category) {
   category = category.toLowerCase();
@@ -13,6 +17,8 @@ function setCategory(category) {
       return category;
     case "finance":
       return category;
+    case "finances":
+      return "finance";
     case "other":
       return category;
     default:
@@ -21,10 +27,12 @@ function setCategory(category) {
 }
 
 function Helper() {
-  const helperOption = useSelector(state => {
+  const { tickets, helperOption } = useSelector(state => {
     const { helperOption } = state;
-    return helperOption;
+    const { tickets } = state.tickets;
+    return { tickets, helperOption };
   });
+
   const [alltickets, setAllTickets] = useState([
     {
       id: 0,
@@ -120,6 +128,8 @@ function Helper() {
   const [showMyTicketModal, setShowMyTicketModal] = useState(false);
   const [selectedTicket, setSelectedTicket] = useState(null);
 
+  const dispatch = useDispatch();
+
   function closeALLTicketModal() {
     setShowALLTicketModal(false);
   }
@@ -128,80 +138,35 @@ function Helper() {
     setShowMyTicketModal(false);
   }
 
+  useEffect(() => {
+    dispatch(helperGetAllTickets());
+  }, []);
+
   return (
     <div className="main-content">
       {showALLTicketModal && (
         <Modal>
-          <div className="ticket-modal-info">
-            <div className="ticket-modal-options">
-              <i
-                onClick={closeALLTicketModal}
-                className="far fa-times-circle ticket-modal-close"
-              ></i>
-              <button className="assign-ticket-btn">Assign</button>
-            </div>
-            <h2 className="ticket-modal-category">
-              {alltickets[selectedTicket].category} Issue
-            </h2>
-            <p className="ticket-modal-title">
-              {alltickets[selectedTicket].title}
-            </p>
-            <div className="more-info">
-              <p className="ticket-modal-description-heading">
-                Description of issue
-              </p>
-              <p>
-                I'm on the Hospital project, we aren't able to agree on the
-                direction of the assignment.
-              </p>
-            </div>
-            <div className="tried">
-              <p className="ticket-modal-tried-heading">What I've tried</p>
-              <p>Meet individual with my TL and SL</p>
-            </div>
-          </div>
+          <AllTicketModal
+            selectedTicket={selectedTicket}
+            closeALLTicketModal={closeALLTicketModal}
+          />
         </Modal>
       )}
       {showMyTicketModal && (
         <Modal>
-          <div className="ticket-modal-info">
-            <div className="ticket-modal-options ticket-modal-options-variant">
-              <i
-                onClick={closeMyTicketModal}
-                className="far fa-times-circle ticket-modal-close"
-              ></i>
-              <button className="unassign-ticket-btn">Unassign</button>
-              <button className="resolve-ticket-btn">Resolve</button>
-            </div>
-            <h2 className="ticket-modal-category">
-              {myTickets[selectedTicket].category} Issue
-            </h2>
-            <p className="ticket-modal-title">
-              {myTickets[selectedTicket].title}
-            </p>
-            <div className="more-info">
-              <p className="ticket-modal-description-heading">
-                Description of issue
-              </p>
-              <p>
-                I'm on the Hospital project, we aren't able to agree on the
-                direction of the assignment.
-              </p>
-            </div>
-            <div className="tried">
-              <p className="ticket-modal-tried-heading">What I've tried</p>
-              <p>Meet individual with my TL and SL</p>
-            </div>
-          </div>
+          <MyTicketModal
+            selectedTicket={selectedTicket}
+            closeMyTicketModal={closeMyTicketModal}
+          />
         </Modal>
       )}
       {helperOption === 1 ? (
         <div className="alltickets">
-          {alltickets.map((ticket, index) => {
+          {tickets.map(ticket => {
             return (
               <div
                 onClick={() => {
-                  setSelectedTicket(index);
+                  setSelectedTicket(ticket);
                   setShowALLTicketModal(true);
                 }}
                 key={ticket.id}
@@ -224,11 +189,11 @@ function Helper() {
         </div>
       ) : (
         <div className="mytickets">
-          {myTickets.map((ticket, index) => {
+          {tickets.map(ticket => {
             return (
               <div
                 onClick={() => {
-                  setSelectedTicket(index);
+                  setSelectedTicket(ticket);
                   setShowMyTicketModal(true);
                 }}
                 key={ticket.id}

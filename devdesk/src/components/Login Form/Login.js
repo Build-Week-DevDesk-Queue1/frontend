@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { useHistory, Link } from "react-router-dom";
-import styled from "styled-components";
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import { userAction } from "../../actions";
 const { loginUser } = userAction;

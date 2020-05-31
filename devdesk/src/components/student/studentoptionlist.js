@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { studentOptionAction } from "../../actions";
 import { useSelector, useDispatch } from "react-redux";
 const { setStudentOptions } = studentOptionAction;
 
 function StudentOptionList() {
-  const [optionSelected, setOptionSelected] = useState(1);
   const studentOption = useSelector(state => {
     const { studentOption } = state;
     return studentOption;
