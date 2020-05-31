@@ -134,8 +134,9 @@ table {
 
 /* my styles */
 
-:root {
+html {
   box-sizing: border-box;
+  height: 100%;
 }
 
 *,
@@ -146,6 +147,7 @@ table {
 
 body {
   font-family: "Source Sans Pro", sans-serif;
+  height: 100%;
 }
 
 h1,
@@ -159,6 +161,7 @@ h6 {
 
 :root {
   box-sizing: border-box;
+  height: 100%;
 }
 
 *,
@@ -216,6 +219,7 @@ h6 {
   flex: 1;
   background-color: #f9fafb;
   height: 100%;
+  min-height: 100%;
   padding: 20px 0;
 }
 
@@ -232,7 +236,6 @@ h6 {
 }
 
 .closeTickets,
-.createTicket,
 .mytickets {
   height: 100vh;
   min-height: 100%;
@@ -587,6 +590,79 @@ h6 {
 .category-other-selected {
   background-color: #0bc3cf;
   color: white;
+}
+
+.studentEditModal {
+  width: 40%;
+}
+
+.studentEditForm {
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+.studentEditForm h2 {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.studentEditForm label {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.studentEditForm input {
+  margin-top: 5px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid blue;
+}
+
+.studentEditForm button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  height: 50px;
+  color: #ffffff;
+  border-radius: 15px;
+  background-color: #0170eb;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid #0170eb;
+}
+
+.studentEditForm .info-helper {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+.studentEditForm .info-helper-astericks {
+  color: red;
+}
+
+.studentEditForm .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.studentEditForm textarea {
+  margin-top: 10px;
+  border: 1px solid blue;
+  font-size: 14px;
+  height: 100px;
+}
+
+.studentEditForm header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-ticket-modal-close {
+  color: red;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 5px;
 }
 
 .color1 {

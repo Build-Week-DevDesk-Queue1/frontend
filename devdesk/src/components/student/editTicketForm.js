@@ -1,43 +1,55 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { ticketAction } from "../../actions";
-const { createStudentTicket } = ticketAction;
+const { editStudentTicket } = ticketAction;
 
-function CreateTicketForm() {
+function EditTicketForm({ selectedTicket, setShowEditModal }) {
   const categories = ["Equipment", "People", "Track", "Finance", "Other"];
-  const [createTicket, setCreateTicket] = useState({
-    title: "",
-    category: null,
-    tried: "",
-    additional_info: ""
+
+  const [editTicket, setEditTicket] = useState({
+    title: selectedTicket.title,
+    category: categories.findIndex(
+      category => category === selectedTicket.category
+    ),
+    tried: selectedTicket.tried || "",
+    additional_info: selectedTicket.additional_info || ""
   });
+
   const dispatch = useDispatch();
 
   function handleChange(e) {
-    setCreateTicket({ ...createTicket, [e.target.name]: e.target.value });
+    setEditTicket({ ...editTicket, [e.target.name]: e.target.value });
   }
 
   function setCategory(e) {
-    setCreateTicket({
-      ...createTicket,
+    setEditTicket({
+      ...editTicket,
       category: +e.target.getAttribute("data-id")
     });
   }
 
   function onFormSubmit(e) {
     e.preventDefault();
-    if (!createTicket.title && !createTicket.category) {
+    if (!editTicket.title && !editTicket.category) {
       return;
     }
-    const selectedCategory = categories[createTicket.category];
-    let newTicket = { ...createTicket, category: selectedCategory };
+    const selectedCategory = categories[editTicket.category];
+    let updatedTicket = { ...editTicket, category: selectedCategory };
 
-    dispatch(createStudentTicket(newTicket));
+    dispatch(editStudentTicket(selectedTicket.id, updatedTicket));
   }
 
   return (
-    <form onSubmit={onFormSubmit} className="createTicketForm">
-      <h2>Let's submit a help ticket.</h2>
+    <form onSubmit={onFormSubmit} className="studentEditForm">
+      <header>
+        <h2>Edit help ticket.</h2>
+        <i
+          onClick={() => {
+            setShowEditModal(false);
+          }}
+          className="far fa-times-circle edit-ticket-modal-close"
+        ></i>
+      </header>
       <p className="info-helper">
         <span className="info-helper-astericks">*</span> Required Fields
       </p>
@@ -46,7 +58,7 @@ function CreateTicketForm() {
           What's going on? <span className="info-helper-astericks">*</span>
         </label>
         <input
-          value={createTicket.title}
+          value={editTicket.title}
           onChange={handleChange}
           name="title"
           type="text"
@@ -63,7 +75,7 @@ function CreateTicketForm() {
             data-id="0"
             onClick={setCategory}
             className={
-              createTicket.category + "" === "0"
+              editTicket.category + "" === "0"
                 ? "category-selection-option category-equipment category-equipment-selected"
                 : "category-selection-option category-equipment"
             }
@@ -74,7 +86,7 @@ function CreateTicketForm() {
             data-id="1"
             onClick={setCategory}
             className={
-              createTicket.category + "" === "1"
+              editTicket.category + "" === "1"
                 ? "category-selection-option category-people category-people-selected"
                 : "category-selection-option category-people"
             }
@@ -85,7 +97,7 @@ function CreateTicketForm() {
             data-id="2"
             onClick={setCategory}
             className={
-              createTicket.category + "" === "2"
+              editTicket.category + "" === "2"
                 ? "category-selection-option category-track category-track-selected"
                 : "category-selection-option category-track"
             }
@@ -96,7 +108,7 @@ function CreateTicketForm() {
             data-id="3"
             onClick={setCategory}
             className={
-              createTicket.category + "" === "3"
+              editTicket.category + "" === "3"
                 ? "category-selection-option category-finances category-finances-selected"
                 : "category-selection-option category-finances"
             }
@@ -107,7 +119,7 @@ function CreateTicketForm() {
             data-id="4"
             onClick={setCategory}
             className={
-              createTicket.category + "" === "4"
+              editTicket.category + "" === "4"
                 ? "category-selection-option category-other category-other-selected"
                 : "category-selection-option category-other"
             }
@@ -119,7 +131,7 @@ function CreateTicketForm() {
       <div className="form-group">
         <label>What have you tried?</label>
         <textarea
-          value={createTicket.tried}
+          value={editTicket.tried}
           onChange={handleChange}
           name="tried"
           id=""
@@ -130,7 +142,7 @@ function CreateTicketForm() {
       <div className="form-group">
         <label>Anything else we should know?</label>
         <textarea
-          value={createTicket.additional_info}
+          value={editTicket.additional_info}
           onChange={handleChange}
           name="additional_info"
           id=""
@@ -138,11 +150,11 @@ function CreateTicketForm() {
           rows="10"
         ></textarea>
       </div>
-      <button type="submit" className="create-ticket-btn">
-        Submit Ticket
+      <button type="submit" className="edit-ticket-btn">
+        Edit Ticket
       </button>
     </form>
   );
 }
 
-export default CreateTicketForm;
+export default EditTicketForm;
