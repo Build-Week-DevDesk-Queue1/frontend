@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import CreateTicketForm from "./createticketform";
 import StudentOptionList from "./studentoptionlist";
 import { useSelector, useDispatch } from "react-redux";
-import axiosWithAuth from "../../util/axiosWithAuth";
+import { useHistory } from "react-router-dom";
 import Modal from "./modal";
 import EditTicketForm from "./editTicketForm";
 import { ticketAction } from "../../actions";
@@ -206,13 +206,14 @@ function StudentContent({
   }
 }
 
-function StudentDashboard() {
+function StudentDashboard(props) {
   const { tickets, studentOption } = useSelector(state => {
     const { studentOption } = state;
     const { tickets } = state.tickets;
     return { tickets, studentOption };
   });
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [selectedTicket, setSelectedTicket] = useState(null);
   const [showEditModal, setShowEditModal] = useState(false);
@@ -236,6 +237,15 @@ function StudentDashboard() {
       <div className="student-sidebar">
         <h2 className="dashboard-brandname">DevDesk</h2>
         <StudentOptionList />
+        <button
+          onClick={() => {
+            localStorage.clear();
+            history.push("/");
+          }}
+          className="logOut"
+        >
+          Log Out
+        </button>
       </div>
       <div className="student-main-content">
         <StudentContent

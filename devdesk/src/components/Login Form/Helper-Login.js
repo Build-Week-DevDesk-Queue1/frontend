@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { useHistory, Link } from "react-router-dom";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { userAction } from "../../actions";
+const { loginUser } = userAction;
 
 export default function HelperForm() {
   const [Input, setInput] = useState({ username: "", password: "" });
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleChange = event => {
     setInput({ ...Input, [event.target.name]: event.target.value });
@@ -16,18 +19,9 @@ export default function HelperForm() {
     if (!Input.username && !Input.password) {
       return;
     }
-
-    axios
-      .post("https://the-queue1.herokuapp.com/api/auth/login", {
-        username: Input.username,
-        password: Input.password
-      })
-      .then(res => {
-        console.log(res.data);
-      })
-      .catch(err => {
-        console.log(err.response.data);
-      });
+    dispatch(
+      loginUser({ username: Input.username, password: Input.password }, history)
+    );
   };
 
   return (
@@ -37,16 +31,16 @@ export default function HelperForm() {
       <div className="form-container">
         <div id="wrapper">
           <span style={{ color: "Dodgerblue", paddingBottom: "10px" }}>
-            <i class="fas fa-laptop fa-3x"></i>
+            <i className="fas fa-laptop fa-3x"></i>
           </span>
           <h3>Please Login</h3>
           <form onSubmit={submitForm}>
             <div className="form-option">
-              <label className="active" htmlFor="email">
+              <label className="active" htmlFor="username">
                 <span>Username:{""}</span>
               </label>
               <input
-                type="email"
+                type="text"
                 onChange={handleChange}
                 placeholder="What's your username?"
                 value={Input.username}
@@ -73,16 +67,13 @@ export default function HelperForm() {
           </form>
           <div className="signup">
             <p>
-              Not a member?{" "}
-              <Link activeClassName="selected" to="/registration">
-                Sign up for free!
-              </Link>
+              Not a member? <Link to="/registration">Sign up for free!</Link>
             </p>
           </div>
         </div>
-        <button className="end-motto" onClick={() => history.push("/helper")}>
+        <button className="end-motto" onClick={() => history.push("/")}>
           {" "}
-          <p>Not a student? Click here.</p>
+          <p>Not a helper? Click here.</p>
         </button>
       </div>
     </>

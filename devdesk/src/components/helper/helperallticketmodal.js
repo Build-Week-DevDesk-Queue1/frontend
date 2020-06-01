@@ -1,6 +1,15 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { ticketAction } from "../../actions";
+const { assignTicket } = ticketAction;
 
 function AllTicketModal({ selectedTicket, closeALLTicketModal }) {
+  const { user } = useSelector(state => {
+    const { user } = state.user;
+    return { user };
+  });
+  const dispatch = useDispatch();
+
   return (
     <div className="ticket-modal-info">
       <div className="ticket-modal-options">
@@ -8,21 +17,33 @@ function AllTicketModal({ selectedTicket, closeALLTicketModal }) {
           onClick={closeALLTicketModal}
           className="far fa-times-circle ticket-modal-close"
         ></i>
-        <button className="assign-ticket-btn">Assign</button>
+        <button
+          onClick={e => {
+            dispatch(
+              assignTicket(selectedTicket.id, user.id, closeALLTicketModal)
+            );
+          }}
+          className="assign-ticket-btn"
+        >
+          Assign
+        </button>
       </div>
       <h2 className="ticket-modal-category">{selectedTicket.category} Issue</h2>
       <p className="ticket-modal-title">{selectedTicket.title}</p>
-      <div className="more-info">
-        <p className="ticket-modal-description-heading">Description of issue</p>
-        <p>
-          I'm on the Hospital project, we aren't able to agree on the direction
-          of the assignment.
-        </p>
-      </div>
-      <div className="tried">
-        <p className="ticket-modal-tried-heading">What I've tried</p>
-        <p>Meet individual with my TL and SL</p>
-      </div>
+      {selectedTicket.additional_info && (
+        <div className="more-info">
+          <p className="ticket-modal-description-heading">
+            Description of issue
+          </p>
+          <p>{selectedTicket.additional_info}</p>
+        </div>
+      )}
+      {selectedTicket.tried && (
+        <div className="tried">
+          <p className="ticket-modal-tried-heading">What I've tried</p>
+          <p>{selectedTicket.tried}</p>
+        </div>
+      )}
     </div>
   );
 }

@@ -16,11 +16,20 @@ const {
   EDIT_STUDENT_TICKET_START,
   EDIT_STUDENT_TICKET_SUCCESS,
   EDIT_STUDENT_TICKET_FAILURE,
+  ASSIGN_TICKET_START,
+  ASSIGN_TICKET_SUCCESS,
+  ASSIGN_TICKET_FAILURE,
   EXPAND_STUDENT_TICKET,
   DROPDOWN_STUDENT_TICKET,
   FETCH_ALL_TICKETS_START,
   FETCH_ALL_TICKETS_SUCCESS,
-  FETCH_ALL_TICKETS_FAILURE
+  FETCH_ALL_TICKETS_FAILURE,
+  HELPER_SET_TICKET_COMPLETED_START,
+  HELPER_SET_TICKET_COMPLETED_SUCCESS,
+  HELPER_SET_TICKET_COMPLETED_FAILURE,
+  UNASSIGN_TICKET_START,
+  UNASSIGN_TICKET_SUCCESS,
+  UNASSIGN_TICKET_FAILURE
 } = ticketAction;
 
 const initialState = {
@@ -87,7 +96,7 @@ function ticketReducer(state = initialState, action) {
     case EDIT_STUDENT_TICKET_FAILURE:
       return { ...state, isloading: false, error: action.payload };
     case FETCH_ALL_TICKETS_START:
-      return { ...state, isloading: true, error: action.payload };
+      return { ...state, isloading: true, error: null };
     case FETCH_ALL_TICKETS_SUCCESS:
       return {
         ...state,
@@ -96,6 +105,39 @@ function ticketReducer(state = initialState, action) {
         error: null
       };
     case FETCH_ALL_TICKETS_FAILURE:
+      return { ...state, isloading: false, error: action.payload };
+    case ASSIGN_TICKET_START:
+      return { ...state, isloading: true, error: null };
+    case ASSIGN_TICKET_SUCCESS:
+      return {
+        ...state,
+        tickets: [...action.payload],
+        isloading: false,
+        error: null
+      };
+    case ASSIGN_TICKET_FAILURE:
+      return { ...state, isloading: false, error: action.payload };
+    case HELPER_SET_TICKET_COMPLETED_START:
+      return { ...state, isloading: true, error: null };
+    case HELPER_SET_TICKET_COMPLETED_SUCCESS:
+      return {
+        ...state,
+        tickets: [...action.payload],
+        isloading: false,
+        error: null
+      };
+    case HELPER_SET_TICKET_COMPLETED_FAILURE:
+      return { ...state, isloading: false, error: action.payload };
+    case UNASSIGN_TICKET_START:
+      return { ...state, isloading: true, error: null };
+    case UNASSIGN_TICKET_SUCCESS:
+      return {
+        ...state,
+        tickets: [...action.payload],
+        isloading: false,
+        error: null
+      };
+    case UNASSIGN_TICKET_FAILURE:
       return { ...state, isloading: false, error: action.payload };
     case EXPAND_STUDENT_TICKET:
       let expandtickets = state.tickets.map(ticket => {
