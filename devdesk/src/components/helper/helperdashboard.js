@@ -2,7 +2,7 @@ import React from "react";
 import Helper from "./helper";
 import HelperSidebar from "./helpersidebar";
 
-function HelperDashboard() {
+function HelperDashboard(props) {
   return (
     <>
       <HelperSidebar />

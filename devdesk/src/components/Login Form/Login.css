@@ -1,10 +1,8 @@
-
-
 h1 {
   text-align: center;
   font-family: "Source Sans Pro", sans-serif;
- font-size: 5rem !important;
- margin-top: 30px !important;
+  font-size: 5rem !important;
+  margin-top: 30px !important;
 }
 
 .motto {
@@ -16,10 +14,18 @@ h1 {
 }
 
 @keyframes color-change {
-  0% { color: #c716C4; }
-  30% { color: #007AFF }
-  50% { color: #0AC3CF; }
-  100% { color: #FF6332; }
+  0% {
+    color: #c716c4;
+  }
+  30% {
+    color: #007aff;
+  }
+  50% {
+    color: #0ac3cf;
+  }
+  100% {
+    color: #ff6332;
+  }
 }
 
 .end-motto {
@@ -35,9 +41,14 @@ h1 {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+  cursor: pointer;
 }
 .end-motto:hover {
   color: red;
+}
+
+.notHelperBtn {
+  cursor: pointer;
 }
 
 .active {
@@ -57,7 +68,7 @@ h1 {
   margin: 0 auto;
   background: #fff;
   border: thin solid #ededed;
-  box-shadow: 1px 10px 21px -7px rgba(48,47,42,1);
+  box-shadow: 1px 10px 21px -7px rgba(48, 47, 42, 1);
 }
 
 #wrapper > span {
@@ -73,7 +84,7 @@ h3 {
   text-align: center;
   font-size: 1.5rem;
   color: #777;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   margin: 0 0 35px 0;
   padding: 10px;
 }
@@ -86,12 +97,12 @@ h3 {
 }
 
 input {
- width: 260px;
- height: 50px;
- box-sizing: border-box;
- padding: 10px;
- font-size: 1rem;
- border: 1.5px solid #cccccc;
+  width: 260px;
+  height: 50px;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1.5px solid #cccccc;
 }
 
 .form-option {
@@ -102,13 +113,13 @@ input {
   color: #777;
   font-weight: bold;
   font-size: 1rem;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .login-btn {
   width: 200px;
   height: 50px;
-  background: #0AC3CF;
+  background: #0ac3cf;
   border: none;
   display: block;
   margin: 0 auto;
@@ -120,12 +131,12 @@ input {
   font-weight: 700;
   font-size: 1rem;
   margin-bottom: 10px;
-  transition: backgroundColor .2s ease;
+  transition: backgroundColor 0.2s ease;
   outline: none;
 }
 
 .login-btn:hover {
-  background-color: #A0E0BB;
+  background-color: #a0e0bb;
 }
 
 .signup {
@@ -143,6 +154,6 @@ input {
 }
 
 .signup > p {
- font-size: .9rem;
- font-family: 'Source Sans Pro', sans-serif;
-} 
+  font-size: 0.9rem;
+  font-family: "Source Sans Pro", sans-serif;
+}

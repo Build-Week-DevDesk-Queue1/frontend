@@ -1,13 +1,22 @@
 import React from "react";
 import HelperOptionList from "./helperoptionlist";
-import HelperFilterTickets from "./helperfiltertickets";
+import { useHistory } from "react-router-dom";
 
 function HelperSidebar() {
+  const history = useHistory();
   return (
     <div className="sidebar">
       <h2 className="dashboard-brandname">DevDesk</h2>
       <HelperOptionList />
-      <HelperFilterTickets />
+      <button
+        onClick={() => {
+          localStorage.clear();
+          history.push("/");
+        }}
+        className="logOut"
+      >
+        Log Out
+      </button>
     </div>
   );
 }

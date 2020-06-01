@@ -5,6 +5,7 @@ import HelperDashboard from "./components/helper/helperdashboard";
 import StudentDashboard from "./components/student/studentdashboard";
 import Registration from "./components/Login Form/Registration";
 import Helper from "./components/Login Form/Helper-Login";
+import PrivateRoute from "./components/privateroute";
 import "./App.css";
 
 function App() {
@@ -12,12 +13,12 @@ function App() {
     <div className="App">
       <div className="box">
         <Route exact path="/" component={Login} />
-        <Route exact path="/helper" component={Helper} />
+        <Route path="/helper" component={Helper} />
         <Route path="/registration" component={Registration} />
       </div>
       <div className="wrapper">
-        <Route path="/helper-dashboard" component={HelperDashboard} />
-        <Route path="/student-dashboard" component={StudentDashboard} />
+        <PrivateRoute path="/helper-dashboard" component={HelperDashboard} />
+        <PrivateRoute path="/student-dashboard" component={StudentDashboard} />
       </div>
     </div>
   );

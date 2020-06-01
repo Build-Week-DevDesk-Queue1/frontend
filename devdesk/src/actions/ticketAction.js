@@ -30,6 +30,20 @@ const FETCH_ALL_TICKETS_START = "FETCH_ALL_TICKETS_START";
 const FETCH_ALL_TICKETS_SUCCESS = "FETCH_ALL_TICKETS_SUCCESS";
 const FETCH_ALL_TICKETS_FAILURE = "FETCH_ALL_TICKETS_FAILURE";
 
+const ASSIGN_TICKET_START = "ASSIGN_TICKET_START";
+const ASSIGN_TICKET_SUCCESS = "ASSIGN_TICKET_SUCCESS";
+const ASSIGN_TICKET_FAILURE = "ASSIGN_TICKET_FAILURE";
+
+const UNASSIGN_TICKET_START = "UNASSIGN_TICKET_START";
+const UNASSIGN_TICKET_SUCCESS = "UNASSIGN_TICKET_SUCCESS";
+const UNASSIGN_TICKET_FAILURE = "UNASSIGN_TICKET_FAILURE";
+
+const HELPER_SET_TICKET_COMPLETED_START = "HELPER_SET_TICKET_COMPLETED_START";
+const HELPER_SET_TICKET_COMPLETED_SUCCESS =
+  "HELPER_SET_TICKET_COMPLETED_SUCCESS";
+const HELPER_SET_TICKET_COMPLETED_FAILURE =
+  "HELPER_SET_TICKET_COMPLETED_FAILURE";
+
 function createStudentTicket(ticket) {
   return dispatch => {
     dispatch({ type: ADD_TICKET_START });
@@ -139,6 +153,71 @@ function helperGetAllTickets() {
   };
 }
 
+function assignTicket(ticketId, helperId, closeALLTicketModal) {
+  return dispatch => {
+    dispatch({ type: ASSIGN_TICKET_START });
+    axiosWithAuth()
+      .put(`/helpers/tickets/${ticketId}`, {
+        assigned_to: helperId,
+        assigned: true
+      })
+      .then(res => {
+        dispatch({ type: ASSIGN_TICKET_SUCCESS, payload: res.data });
+        closeALLTicketModal();
+      })
+      .catch(err => {
+        dispatch({
+          type: ASSIGN_TICKET_FAILURE,
+          payload: "Unable to assign ticket to helper"
+        });
+      });
+  };
+}
+
+function unassignTicket(ticketId, closeMyTicketModal) {
+  return dispatch => {
+    dispatch({ type: UNASSIGN_TICKET_START });
+    axiosWithAuth()
+      .put(`/helpers/tickets/${ticketId}`, {
+        assigned: false,
+        assigned_to: null
+      })
+      .then(res => {
+        dispatch({ type: UNASSIGN_TICKET_SUCCESS, payload: res.data });
+        closeMyTicketModal();
+      })
+      .catch(err => {
+        console.log(err.response.data);
+        dispatch({
+          type: UNASSIGN_TICKET_FAILURE,
+          payload: "Unable to unassign ticket"
+        });
+      });
+  };
+}
+
+function helperSetTicketCompleted(ticket) {
+  return dispatch => {
+    dispatch({ type: HELPER_SET_TICKET_COMPLETED_START });
+    axiosWithAuth()
+      .put(`/helpers/tickets/${ticket.id}`, {
+        completed: true
+      })
+      .then(res => {
+        dispatch({
+          type: HELPER_SET_TICKET_COMPLETED_SUCCESS,
+          payload: res.data
+        });
+      })
+      .catch(err => {
+        dispatch({
+          type: HELPER_SET_TICKET_COMPLETED_FAILURE,
+          payload: "Unable to set ticket completed"
+        });
+      });
+  };
+}
+
 function expandStudentTicket(id) {
   return {
     type: EXPAND_STUDENT_TICKET,
@@ -162,6 +241,9 @@ export {
   deleteStudentTicket,
   editStudentTicket,
   helperGetAllTickets,
+  assignTicket,
+  unassignTicket,
+  helperSetTicketCompleted,
   FETCH_STUDENT_TICKET_START,
   FETCH_STUDENT_TICKET_SUCCESS,
   FETCH_STUDENT_TICKET_FAILURE,
@@ -180,6 +262,15 @@ export {
   ADD_TICKET_START,
   ADD_TICKET_SUCCESS,
   ADD_TICKET_FAILURE,
+  ASSIGN_TICKET_START,
+  ASSIGN_TICKET_SUCCESS,
+  ASSIGN_TICKET_FAILURE,
+  UNASSIGN_TICKET_START,
+  UNASSIGN_TICKET_SUCCESS,
+  UNASSIGN_TICKET_FAILURE,
+  HELPER_SET_TICKET_COMPLETED_START,
+  HELPER_SET_TICKET_COMPLETED_SUCCESS,
+  HELPER_SET_TICKET_COMPLETED_FAILURE,
   EXPAND_STUDENT_TICKET,
   DROPDOWN_STUDENT_TICKET
 };

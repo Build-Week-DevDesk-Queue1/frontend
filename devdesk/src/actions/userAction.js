@@ -15,6 +15,7 @@ function registerUser(user, history) {
       .then(res => {
         dispatch({ type: REGISTER_USER_SUCCESS, payload: res.data });
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("user", JSON.stringify(res.data));
 
         if (res.data.role === "student") {
           history.push("/student-dashboard");
@@ -41,6 +42,7 @@ function loginUser(user, history) {
       .then(res => {
         dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data });
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("user", JSON.stringify(res.data));
 
         if (res.data.role === "student") {
           console.log(res.data.role);

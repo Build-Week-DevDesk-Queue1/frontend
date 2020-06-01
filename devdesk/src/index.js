@@ -8,8 +8,17 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
+const userInfo = JSON.parse(localStorage.getItem("user"));
+
 const store = createStore(
   rootReducer,
+  {
+    user: {
+      user: userInfo || {},
+      isloading: false,
+      error: null
+    }
+  },
   composeWithDevTools(applyMiddleware(thunk))
 );
 
